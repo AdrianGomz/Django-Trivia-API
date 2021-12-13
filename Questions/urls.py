@@ -1,9 +1,22 @@
-from django.urls import path
-from Questions import views
+from django.urls import path, include
+from .views import QuestionsViewset
+from rest_framework.routers import DefaultRouter
 
+
+question_list = QuestionsViewset.as_view({
+
+    'get': 'list',
+    'post': 'create'
+})
+question_detail = QuestionsViewset.as_view({
+    'get': 'retrive',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+
+router = DefaultRouter()
+router.register('question', QuestionsViewset)
 urlpatterns = [
-    # path('questions/', views.question_list),
-    # path('questions/<int:pk>', views.question_detail),
-    path('question/', views.QuestionsList.as_view()),
-    path('question/<int:pk>', views.QuestionDetail.as_view())
+    path('', include(router.urls))
 ]

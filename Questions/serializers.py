@@ -3,7 +3,8 @@ from .models import Question
 
 
 class QuestionSerializer (serializers.ModelSerializer):
+    author = serializers.StringRelatedField()
+
     class Meta:
         model = Question
-        fields = ['id', 'category', 'question', 'ansA',
-                  'ansB', 'ansC', 'ansD', 'correct_ans']
+        fields = '__all__'
