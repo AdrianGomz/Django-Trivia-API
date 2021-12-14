@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register('question', QuestionsViewset)
+router.register('', QuestionsViewset)
 urlpatterns = [
     path('', include(router.urls))
 ]
