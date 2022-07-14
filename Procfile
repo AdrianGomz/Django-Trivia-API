@@ -1,1 +1,1 @@
-web: gunicorn <TriviaApp>.wsgi --log-file -
+web: gunicorn TriviaApp.wsgi
