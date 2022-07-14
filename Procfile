@@ -1,0 +1,1 @@
+web: gunicorn django-trivia.wsgi --log-file -
